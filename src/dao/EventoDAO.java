@@ -23,29 +23,54 @@ public class EventoDAO {
 
 	public Evento getById(long id) {
 		Evento found = em.find(Evento.class, id); // il primo parametro sarà la classe di pertinenza(Nomeclasse.class),
-													// il secondo sarà l'id;
+		// il secondo sarà l'id;
+		if (found != null) {
+			System.out.println("Evento" + " " + id + " " + "trovato");
+		} else {
+			System.out.println("Non abbiamo trovato niente");
+		}
 		return found;
 
 	}
 
-//	public void findByIdAndDelete(long id) {
-//		Student found = em.find(Nomeclasse.class,id);
-//		if(found != null) {
-//			EntityTransacction transaction = em.getTransaction();
+//	public void delete(long id, LocalDate date) {
+//		Evento found = em.find(Evento.class, date);
+//		if (found != null) {
+//			EntityTransaction transaction = em.getTransaction();
 //			transaction.begin();
 //			em.remove(found);
 //			transaction.commit();
-//			System.out.println("studente eliminato");
-//		}else {
-//			System.out.println("non ho fatto niente");
+//			System.out.println("Evento in data: " + date + " " + "è stato eliminato dal db");
+//		} else {
+//			System.out.println("non ho eliminato un bel  niente");
 //		}
-//	} ELIMINARE STUDENTE TROVANDOLO PER ID;
-
-	// ORA FAREMO IL REFRESH
-//	public void refresh(long id) {
-//		Student found = em.find(Nomeclasse.class,id);
-//		found.setFirstName("Giovanni");
-//		em.refresh(found);
-//		System.out.println(found);
 //	}
+
+	public void delete(long id) {
+		Evento found = em.find(Evento.class, id);
+		if (found != null) {
+			EntityTransaction transaction = em.getTransaction();
+			transaction.begin();
+			em.remove(found);
+			transaction.commit();
+			System.out.println("Evento " + id + " " + "è stato eliminato dal db");
+		} else {
+			System.out.println("non ho eliminato un bel  niente");
+		}
+	}
+
+	public void refresh(long id) {
+		Evento found = em.find(Evento.class, id);
+		if (found != null) {
+
+			found.setNumeroMassimoPartecipanti(120);
+			System.out.println("Pre refresh");
+			System.out.println(found);
+			em.refresh(found);
+			System.out.println("Post refresh");
+			System.out.println(found);
+		} else {
+			System.out.println("non ho trovato niente e non ho refreshato");
+		}
+	}
 }

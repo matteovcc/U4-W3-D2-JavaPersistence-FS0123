@@ -32,7 +32,7 @@ public class Evento {
 		this.date = date;
 		this.descrizione = descrizione;
 		this.tipoEvento = tipoEvento;
-		this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+		this.setNumeroMassimoPartecipanti(numeroMassimoPartecipanti);
 	}
 
 	public Evento() {
@@ -41,7 +41,16 @@ public class Evento {
 
 	@Override
 	public String toString() {
-		return titolo + " " + descrizione + " " + "in data" + " " + date;
+		return titolo + " " + descrizione + " " + "in data" + " " + date + " " + "Num Partecipanti" + " "
+				+ numeroMassimoPartecipanti;
+	}
+
+	public int getNumeroMassimoPartecipanti() {
+		return numeroMassimoPartecipanti;
+	}
+
+	public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
+		this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
 	}
 
 }
