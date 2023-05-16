@@ -39,18 +39,18 @@ public class Evento {
 
 	}
 
-	@Override
-	public String toString() {
-		return titolo + " " + descrizione + " " + "in data" + " " + date + " " + "Num Partecipanti" + " "
-				+ numeroMassimoPartecipanti;
-	}
-
 	public int getNumeroMassimoPartecipanti() {
 		return numeroMassimoPartecipanti;
 	}
 
 	public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
 		this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+	}
+
+	@Override
+	public String toString() {
+		return titolo + " " + descrizione + " " + "in data" + " " + date + " " + "Num Partecipanti" + " "
+				+ numeroMassimoPartecipanti;
 	}
 
 }

@@ -1,7 +1,5 @@
 package app;
 
-import java.time.LocalDate;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -9,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dao.EventoDAO;
-import entities.Evento;
 import util.JpaUtil;
 
 public class Main {
@@ -34,9 +31,16 @@ public class Main {
 //		System.out.print(sd.delete(LocalDate.of(2004, 04, 04)));
 //		sd.delete(6);
 
-		Evento e5 = new Evento("Evento da refreshare", LocalDate.of(2010, 02, 11), "Prova refresh", "Privato", 0);
-		sd.save(e5);
-		sd.refresh(8);
+//		Evento e5 = new Evento("Evento da refreshare", LocalDate.of(2010, 02, 11), "Prova refresh", "Privato", 0);
+//		sd.save(e5);
+//		sd.refresh(8);
+
+		// Eliminazione da titolo
+
+//		Evento e6 = new Evento("Evento da cancellare con query", LocalDate.of(2001, 01, 01),
+//				"Provando il delete con query", "Privato", 0);
+//		sd.save(e6);
+//		sd.deleteByTitle("Evento da cancellare con query");
 
 		em.close();
 		emf.close();
